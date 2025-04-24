@@ -12,101 +12,94 @@
       margin: 0;
       padding: 0;
     }
-    header {
-      background-color: #1a1a1a;
-      padding: 20px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      border-bottom: 2px solid #444;
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #111;
     }
-    section.hero {
-      padding: 40px 20px;
-      text-align: center;
+    .login-box {
       background: #222;
-    }
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-    .hero a {
-      background: #0f0;
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section.downloads {
-      padding: 40px 20px;
-    }
-    .downloads h2 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .download-item {
-      background: #1e1e1e;
-      padding: 20px;
+      padding: 30px;
       border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .download-item h3 {
-      margin: 0 0 10px;
-    }
-    .download-item a {
-      color: #0f0;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-    footer {
-      background: #1a1a1a;
+      box-shadow: 0 0 10px #000;
       text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #aaa;
     }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 50px;
-      text-decoration: none;
+    .login-box input {
+      padding: 10px;
+      margin: 10px 0;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+    }
+    .login-box button {
+      background: #0f0;
+      border: none;
+      padding: 10px 20px;
       font-weight: bold;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      cursor: pointer;
+      border-radius: 5px;
     }
+    #site-content { display: none; }
+    header, footer, .hero, .downloads, .whatsapp-button { display: none; }
   </style>
 </head>
 <body>
-  <header>Protocolo REDE</header>
+  <div class="login-container" id="login-container">
+    <div class="login-box">
+      <h2>Acesso Restrito</h2>
+      <input type="text" id="username" placeholder="Usuário">
+      <input type="password" id="password" placeholder="Senha">
+      <button onclick="login()">Entrar</button>
+      <p id="error" style="color:red;"></p>
+    </div>
+  </div>
 
-  <section class="hero">
-    <h1>Bem-vindo ao nosso centro de downloads</h1>
-    <p>Baixe ferramentas, drivers e arquivos essenciais para sua assistência técnica</p>
-    <a href="https://wa.me/5541991847951" target="_blank">Fale conosco no WhatsApp</a>
-  </section>
+  <div id="site-content">
+    <header>Protocolo REDE</header>
 
-  <section class="downloads">
-    <h2>Downloads Disponíveis</h2>
-    <div class="download-item"><h3><a href="arquivos/usbredirector-customer-module.exe" download>USB Redirector 1.9.7</a></h3></div>
-    <div class="download-item"><h3><a href="arquivos/SAMSUNG.exe" download>Drivers Samsung</a></h3></div>
-    <div class="download-item"><h3><a href="#">Drivers Motorola</a></h3></div>
-    <div class="download-item"><h3><a href="arquivos/mtk.exe" download>MTK Drivers</a></h3></div>
-    <div class="download-item"><h3><a href="arquivos/spd.7z" download>SPD Drivers</a></h3></div>
-    <div class="download-item"><h3><a href="arquivos/m_qualcomm.msi" download>QSD Drivers</a></h3></div>
-    <div class="download-item"><h3><a href="#">Drivers Windows</a></h3></div>
-    <div class="download-item"><h3><a href="#">Windows Assistência</a></h3></div>
-    <div class="download-item"><h3><a href="arquivos/arquivos-diversos/WinRa1n2.1.exe" download>Arquivos Diversos (WinRa1n)</a></h3></div>
-  </section>
+    <section class="hero">
+      <h1>Bem-vindo ao nosso centro de downloads</h1>
+      <p>Baixe ferramentas, drivers e arquivos essenciais para sua assistência técnica</p>
+      <a href="https://wa.me/5541991847951" target="_blank">Fale conosco no WhatsApp</a>
+    </section>
 
-  <footer>© 2025 Protocolo REDE - Todos os direitos reservados</footer>
+    <section class="downloads">
+      <h2>Downloads Disponíveis</h2>
+      <div class="download-item"><h3><a href="arquivos/usbredirector-customer-module.exe" download>USB Redirector 1.9.7</a></h3></div>
+      <div class="download-item"><h3><a href="arquivos/SAMSUNG.exe" download>Drivers Samsung</a></h3></div>
+      <div class="download-item"><h3><a href="#">Drivers Motorola</a></h3></div>
+      <div class="download-item"><h3><a href="arquivos/mtk.exe" download>MTK Drivers</a></h3></div>
+      <div class="download-item"><h3><a href="arquivos/spd.7z" download>SPD Drivers</a></h3></div>
+      <div class="download-item"><h3><a href="arquivos/m_qualcomm.msi" download>QSD Drivers</a></h3></div>
+      <div class="download-item"><h3><a href="#">Drivers Windows</a></h3></div>
+      <div class="download-item"><h3><a href="#">Windows Assistência</a></h3></div>
+      <div class="download-item"><h3><a href="https://www.mediafire.com/file_premium/r5chir41gdj6nti/WinRa1n2.1.exe/file" target="_blank">Arquivos Diversos (WinRa1n)</a></h3></div>
+    </section>
 
-  <a class="whatsapp-button" href="https://wa.me/5541991847951" target="_blank">WhatsApp</a>
+    <footer>© 2025 Protocolo REDE - Todos os direitos reservados</footer>
+
+    <a class="whatsapp-button" href="https://wa.me/5541991847951" target="_blank">WhatsApp</a>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      if (user === 'tecnico' && pass === 'protocolorede') {
+        document.getElementById('login-container').style.display = 'none';
+        document.getElementById('site-content').style.display = 'block';
+        document.querySelector('header').style.display = 'block';
+        document.querySelector('footer').style.display = 'block';
+        document.querySelector('.hero').style.display = 'block';
+        document.querySelector('.downloads').style.display = 'block';
+        document.querySelector('.whatsapp-button').style.display = 'block';
+      } else {
+        document.getElementById('error').textContent = 'Usuário ou senha incorretos';
+      }
+    }
+  </script>
 </body>
 </html>
