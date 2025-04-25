@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Protocolo REDE - Downloads</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d0d0d;
@@ -28,16 +26,8 @@
       padding: 60px 20px;
       text-align: center;
     }
-    .hero h1 {
-      font-size: 36px;
-      color: #0f0;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 18px;
-      color: #ccc;
-      margin-bottom: 20px;
-    }
+    .hero h1 { font-size: 36px; color: #0f0; margin-bottom: 10px; }
+    .hero p { font-size: 18px; color: #ccc; margin-bottom: 20px; }
     .hero a {
       background: transparent;
       color: #25D366;
@@ -45,18 +35,35 @@
       font-size: 18px;
       text-decoration: none;
     }
-    .hero a::before {
-      content: "\1F4F2 "; /* emoji do celular com sinal */
-    }
-    section.downloads {
-      padding: 40px 20px;
+    .hero a::before { content: "\1F4F2 "; }
+
+    nav.tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
       background-color: #111;
+      border-bottom: 2px solid #0f0;
     }
-    .downloads h2 {
-      text-align: center;
-      font-size: 28px;
+    nav.tabs button {
+      background: none;
+      border: none;
       color: #0f0;
-      margin-bottom: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px;
+      border-bottom: 2px solid transparent;
+    }
+    nav.tabs button.active {
+      border-color: #0f0;
+    }
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
+    .tab-content.active {
+      display: block;
     }
     .download-item {
       background: #1c1c1c;
@@ -66,12 +73,8 @@
       max-width: 600px;
       transition: all 0.3s ease;
     }
-    .download-item:hover {
-      background: #2a2a2a;
-    }
-    .download-item h3 {
-      margin: 0;
-    }
+    .download-item:hover { background: #2a2a2a; }
+    .download-item h3 { margin: 0; }
     .download-item a {
       color: #1e90ff !important;
       text-decoration: none;
@@ -112,9 +115,7 @@
       text-align: center;
       width: 300px;
     }
-    .login-box h2 {
-      color: #0f0;
-    }
+    .login-box h2 { color: #0f0; }
     .login-box input {
       padding: 10px;
       margin: 10px 0;
@@ -133,7 +134,7 @@
       border-radius: 5px;
     }
     #site-content { display: none; }
-    header, footer, .hero, .downloads, .whatsapp-button { display: none; }
+    header, footer, .hero, nav, .tab-content, .whatsapp-button { display: none; }
   </style>
 </head>
 <body>
@@ -156,21 +157,35 @@
       <a href="https://wa.me/5541991847951" target="_blank">📱 Fale conosco no WhatsApp</a>
     </section>
 
-    <section class="downloads">
-      <h2>Downloads Disponíveis</h2>
-      <div class="download-item"><h3><a href="arquivos/usbredirector-customer-module.exe" download>USB Redirector 1.9.7</a></h3></div>
+    <nav class="tabs">
+      <button class="tab-button active" onclick="openTab('drivers')">Drivers</button>
+      <button class="tab-button" onclick="openTab('ferramentas')">Ferramentas</button>
+      <button class="tab-button" onclick="openTab('cursos')">Cursos</button>
+      <button class="tab-button" onclick="openTab('videos')">Vídeos</button>
+    </nav>
+
+    <section id="drivers" class="tab-content active">
       <div class="download-item"><h3><a href="arquivos/SAMSUNG.exe" download>Drivers Samsung</a></h3></div>
       <div class="download-item"><h3><a href="#">Drivers Motorola</a></h3></div>
       <div class="download-item"><h3><a href="arquivos/mtk.exe" download>MTK Drivers</a></h3></div>
       <div class="download-item"><h3><a href="arquivos/spd.7z" download>SPD Drivers</a></h3></div>
       <div class="download-item"><h3><a href="arquivos/m_qualcomm.msi" download>QSD Drivers</a></h3></div>
       <div class="download-item"><h3><a href="#">Drivers Windows</a></h3></div>
-      <div class="download-item"><h3><a href="#">Windows Assistência</a></h3></div>
-      <div class="download-item"><h3><a href="https://www.mediafire.com/file_premium/r5chir41gdj6nti/WinRa1n2.1.exe/file" target="_blank">Arquivos Diversos (WinRa1n)</a></h3></div>
+    </section>
+
+    <section id="ferramentas" class="tab-content">
+      <p>Em breve...</p>
+    </section>
+
+    <section id="cursos" class="tab-content">
+      <p>Em breve...</p>
+    </section>
+
+    <section id="videos" class="tab-content">
+      <p>Em breve...</p>
     </section>
 
     <footer>© 2025 Protocolo REDE - Todos os direitos reservados</footer>
-
     <a class="whatsapp-button" href="https://wa.me/5541991847951" target="_blank">WhatsApp</a>
   </div>
 
@@ -184,11 +199,20 @@
         document.querySelector('header').style.display = 'block';
         document.querySelector('footer').style.display = 'block';
         document.querySelector('.hero').style.display = 'block';
-        document.querySelector('.downloads').style.display = 'block';
+        document.querySelector('.tabs').style.display = 'flex';
+        document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+        document.querySelector('.tab-content.active').style.display = 'block';
         document.querySelector('.whatsapp-button').style.display = 'block';
       } else {
         document.getElementById('error').textContent = 'Usuário ou senha incorretos';
       }
+    }
+
+    function openTab(tabId) {
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      document.querySelector(`[onclick="openTab('${tabId}')"]`).classList.add('active');
     }
   </script>
 </body>
