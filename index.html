@@ -44,7 +44,6 @@
       padding: 20px;
       background-color: #111;
       border-bottom: 2px solid #0f0;
-      flex-wrap: wrap;
     }
     nav.tabs button {
       background: none;
@@ -80,27 +79,6 @@
       color: #1e90ff !important;
       text-decoration: none;
       font-size: 18px;
-    }
-    .banner {
-      background: #2a2a2a;
-      color: #0f0;
-      padding: 40px;
-      text-align: center;
-      font-size: 24px;
-      border-radius: 10px;
-      margin-bottom: 40px;
-    }
-    .video-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-    .video-container iframe {
-      width: 100%;
-      max-width: 600px;
-      height: 340px;
-      border: none;
-      border-radius: 10px;
     }
     footer {
       background: #1a1a1a;
@@ -180,21 +158,13 @@
     </section>
 
     <nav class="tabs">
-      <button class="tab-button active" onclick="openTab('home')">Home</button>
-      <button class="tab-button" onclick="openTab('drivers')">Drivers</button>
+      <button class="tab-button active" onclick="openTab('drivers')">Drivers</button>
       <button class="tab-button" onclick="openTab('ferramentas')">Ferramentas</button>
       <button class="tab-button" onclick="openTab('cursos')">Cursos</button>
       <button class="tab-button" onclick="openTab('videos')">Vídeos</button>
     </nav>
 
-    <section id="home" class="tab-content active">
-      <div class="banner">Sua propaganda aqui</div>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <section id="drivers" class="tab-content">
+    <section id="drivers" class="tab-content active">
       <div class="download-item"><h3><a href="arquivos/SAMSUNG.exe" download>Drivers Samsung</a></h3></div>
       <div class="download-item"><h3><a href="#">Drivers Motorola</a></h3></div>
       <div class="download-item"><h3><a href="arquivos/mtk.exe" download>MTK Drivers</a></h3></div>
